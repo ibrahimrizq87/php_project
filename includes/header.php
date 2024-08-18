@@ -44,12 +44,12 @@
     <div class="px-3 py-2 border-bottom mb-3">
       <div class="container d-flex flex-wrap justify-content-center">
       <div class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto d-flex align-items-center">
-    <img src="https://via.placeholder.com/40" alt="User Image" class="rounded-circle" width="40" height="40">
-    <span class="ms-2 fw-bold">Username</span>  
+      <img src=<?php echo $_SESSION["image"]?> alt="User Image" class="rounded-circle" width="40" height="40">
+      <span class="ms-2 fw-bold"> <?php echo $_SESSION["user_name"]?></span>   
 </div>
 
         <div class="text-end">
-          <button type="button" class="btn btn-light text-dark ">Log out</button>
+          <a type="button" class="btn btn-light text-dark " href = 'logout.php'>Log out</a>
         </div>
       </div>
     </div>

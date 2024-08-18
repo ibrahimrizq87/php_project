@@ -69,7 +69,7 @@
 </div>
 
         <div class="text-end">
-          <button type="button" class="btn btn-light text-dark ">Log out</button>
+        <a type="button" class="btn btn-light text-dark " href = 'logout.php'>Log out</a>
         </div>
       </div>
     </div>
