@@ -13,7 +13,41 @@ if (!isset($_SESSION["user_name"])){
 }
 
 
+$id=$_GET['id'];
+
 $has_error=false;   
+$edit_image=false;
+
+
+$userData = [
+    'name' => '',
+    'email' => '',
+    'password' => '',
+    'confirmPassword' => '',
+    'room_no' => '',
+    'ext' => '',
+    'profile_pic' => '',
+    'is_admin' => ''
+];
+
+if(!($_SERVER['REQUEST_METHOD'] == 'POST')) {
+    
+        try{  
+    $database = new Database();
+    $db = $database->getConnection();
+
+    $user = new User($db);
+    $userData = $user->get_user();
+
+
+
+}catch (PDOException $e) {
+    echo 'Connection failed: ' . $e->getMessage();
+    }}else{
+
+    }
+    
+
 
 ?>
 
@@ -22,7 +56,7 @@ $has_error=false;
   
 
         <div class="container shadow p-5 mt-5 bg-light rounded mb-5">
-        <h2>Add User</h2>
+        <h2>Edit User</h2>
     <form method='POST' enctype='multipart/form-data' class="mt-5">
 
 <?php 
@@ -45,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset(($_POST['name']))) {
 
   <div class="mb-3">
   <label for="name" class="form-label">Name:</label>
-  <input type="text" id="name" name="name" class="form-control"  > <br>
+  <input type="text" id="name" name="name" value="<?php echo $userData['name'] ; ?>" class="form-control"  > <br>
   </div>
 
 
@@ -69,9 +103,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['email'])) {
 ?>
   <div class="mb-3">
   <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">   <br>
+    <input type="email" name="email"  value="<?php echo $userData['email'] ; ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">   <br>
   </div>
-
 
   <?php 
 
@@ -145,6 +178,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"&& isset($_POST['password'])) {
   <input type="password" name="confirmPassword" class="form-control" id="confirmPassword"> <br>
   </div>
 
+
+<!-- 
+  <div class="mb-3 form-check">
+  <label for="confirmPassword" class="form-label">Confirm Password</label>
+  <input type="password" name="confirmPassword" class="form-control" id="confirmPassword"> <br>
+  </div> -->
+
   <?php 
 
 
@@ -166,7 +206,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['room_no'])) {
 
   <div class="mb-3 form-check">
   <label for="room_no" class="form-label">Room No.:</label>
-  <input type="number" id="room_no" name="room_no" class="form-control"> <br>
+  <input type="number" id="room_no" value="<?php echo $userData['room_no'] ; ?>" name="room_no" class="form-control"> <br>
   </div>
 
 
@@ -191,7 +231,7 @@ if ( empty($_POST['ext'])){
   
   <div class="mb-3 form-check">
   <label for="ext" class="form-label">Ext.:</label>
-  <input type="number" id="ext" name="ext" class="form-control"> <br>
+  <input type="number" id="ext" value="<?php echo $userData['ext'] ; ?>" name="ext" class="form-control"> <br>
   </div>
 
 
@@ -201,18 +241,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (isset($_FILES['profile_pic']) && $_FILES['profile_pic']['error'] === UPLOAD_ERR_NO_FILE) {
 
       
-      echo '
-      <div class="container mt-5">
-      <div class="alert alert-danger" role="alert">
-          <p> No file was selected. Please choose an image.</p>
-      </div>
-            </div>
-    
-      ';
-      $has_error=true;
+    $edit_image=false;
+
+
   } elseif ($_FILES['profile_pic']['error'] === UPLOAD_ERR_OK) {
-      // File was uploaded successfully, proceed with processing
-     
+
+    $edit_image=true;
+
   } else {
     echo '
     <div class="container mt-5">
@@ -231,7 +266,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   <div class="mb-3 form-check">
   <label for="profile_pic" class="form-label">Profile Picture:</label>
-  <input type="file" id="profilePicture" name="profile_pic" accept="image/*" class="form-control"> <br>
+  <input type="file" id="profilePicture" value="<?php echo $userData['profile_pic'] ; ?>" name="profile_pic" accept="image/*" class="form-control"> <br>
   </div>
 
 
@@ -273,7 +308,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['is_admin'])) {
     </div>
     <div class=" form-check">
 
-    <input class="form-check-input  " type="radio" id  = 'admin' name="is_admin" value="TRUE" aria-label="Radio button for following text input">
+    <?php 
+    if ($userData['is_admin'] == 'TRUE'){
+        echo '<input class="form-check-input  " type="radio" id  = "admin" name="is_admin" value="TRUE" aria-label="Radio button for following text input" checked>';
+    }else{
+        echo '<input class="form-check-input  " type="radio" id  = "admin" name="is_admin" value="TRUE" aria-label="Radio button for following text input" >';
+
+    }
+    ?>
+
     </div>
 
   </div>
@@ -284,7 +327,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['is_admin'])) {
 <label for="user" class="form-label" >Customer</label>
 </div>
 <div class=" form-check">
-<input class="form-check-input mt-0" type="radio" id  = 'user' name="is_admin" value="FALSE" aria-label="Radio button for following text input">
+<?php
+if ($userData['is_admin'] == 'FALSE'){
+        echo '<input class="form-check-input mt-0" type="radio" id  = "user" name="is_admin" value="FALSE" aria-label="Radio button for following text input" checked> ';
+    }else{
+        echo '<input class="form-check-input mt-0" type="radio" id  = "user" name="is_admin" value="FALSE" aria-label="Radio button for following text input">';
+
+    }
+    ?>
+
 </div>
 </div>
 
@@ -295,42 +346,99 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['is_admin'])) {
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (!$has_error){
-  try{
-   
-       $database = new Database();
-  $db = $database->getConnection();
 
-  $user = new User($db);
-  $add = $user->add_user();
 
-  if($add != 'done') {
-    ?>
-    <div class="container mt-5">
-    <div class="alert alert-danger" role="alert">
-        <h4 class="alert-heading">Error!</h4>
-        <p><?php echo $add ;?></p>
+
+    if ($edit_image){
+
+
+        if (file_exists($image)) {
+            if (unlink($image)) {
+                // echo "File deleted successfully.";
+            } else {
+                echo "Error: Unable to delete the file.";
+            }
+        } else {
+            // echo "Error: File does not exist.";
+        }
+
+
+    try{  
+        $database = new Database();
+        $db = $database->getConnection();
+    
+        $user = new User($db);
+        $err = $user->update_user_with_image();
+    if ($err != 'done'){
+        ?>
+        <div class="container mt-5">
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">Error!</h4>
+            <p><?php echo $err ;?></p>
+        </div>
     </div>
-</div>
-    <?php
-}else{
-// header("Location: view_users.php");
+        <?php
+    }else{
+        echo '<script type="text/javascript">
+        window.location.href = "view_users.php";
+    </script>';    }
+
+    
+    
+    }catch (PDOException $e) {
+        ?>
+        <div class="container mt-5">
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">Error!</h4>
+            <p><?php echo 'Connection failed: ' . $e->getMessage(); ?>></p>
+        </div>
+    </div>
+        <?php
+         
+        }
+
+    }else{
+        try{  
+            $database = new Database();
+            $db = $database->getConnection();
+        
+            $user = new User($db);
+            $err = $user->update_user();
+        
+            if($err != 'done') {
+                ?>
+                <div class="container mt-5">
+                <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading">Error!</h4>
+                    <p><?php echo $err ;?></p>
+                </div>
+            </div>
+                <?php
+            }else{
+                echo '<script type="text/javascript">
+                window.location.href = "view_users.php";
+            </script>';
+
 }
-  }catch(Exception $e) {
-      
-      ?>
-      <div class="container mt-5">
-      <div class="alert alert-danger" role="alert">
-          <h4 class="alert-heading">Error!</h4>
-          <p><?php echo 'Connection failed: ' . $e->getMessage();?></p>
-      </div>
-  </div>
-      <?php
-  }
+        
+        }catch (PDOException $e) {
+            ?>
+            <div class="container mt-5">
+            <div class="alert alert-danger" role="alert">
+                <h4 class="alert-heading">Error!</h4>
+                <p><?php 'Connection failed: ' . $e->getMessage();?></p>
+            </div>
+        </div>
+            <?php
+             
+            }
+    }
+
 
 }
 }
 ?>
-  <button type="submit" class="btn btn-primary">Add</button>
+  <button type="submit" class="btn btn-primary">Update </button>
 </form>
 </div>
 
