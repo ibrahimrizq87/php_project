@@ -37,7 +37,7 @@
           
             ?>
             <li>
-              <a href="products.php" class="nav-link text-white">
+              <a href="view_products.php" class="nav-link text-white">
               <img src='images/products.png' class="bi d-block mx-auto mb-1" width="30" height="30">
               Products
               </a>

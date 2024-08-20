@@ -37,9 +37,6 @@ class User {
 
 
             return true;
-            // $_SESSION["is_loged"] =true;
-
-            // header("Location: ../index.php ");
             
         }
         return false;

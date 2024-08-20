@@ -59,7 +59,7 @@ order = {
 };
 var products=[];
     $.ajax({
-        url: '../includes/products.php',
+        url: '../includes/get_products.php',
         type: 'GET',
         dataType: 'json',
         success: function(data) {

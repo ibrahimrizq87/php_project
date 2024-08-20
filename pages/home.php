@@ -144,9 +144,13 @@ ini_set('display_errors', 1);
 
 
         </div>
-        </div> <!-- This div is missing a closing tag -->
+        </div> 
 
     </div>
+    <br>
+  <br>
+  <br>
+  <br>
 <script src = '../script/home.js'>
 </script>
 
