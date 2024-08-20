@@ -7,12 +7,17 @@ require_once '../includes/database.php';
 try {
 $database = new Database();
 $db = $database->getConnection();
-            $stmt = $db->prepare("SELECT * FROM products");
+
+
+
+ 
+          
+            $stmt = $db->prepare("SELECT * FROM users where is_admin = 'FALSE'");
             $stmt->execute();
         
-            $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
-            echo json_encode($products);
+            echo json_encode($users);
         
         } catch(PDOException $e) {
             echo json_encode(["error" => $e->getMessage()]);

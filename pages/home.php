@@ -17,17 +17,26 @@ ini_set('display_errors', 1);
 
 
 <div class="container mt-5">
-        <div class="row">            
-        <div class="dropdown">
+
+
+<!-- <div class="container mb-2"> user name is here </div> -->
+
+        <div class="row">  
+            
+        
+        <div class="dropdown col-md-8">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
     Choose User
   </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" id = 'user-list'>
+ 
   </ul>
+
+
+
 </div>
+
+
             <div class="col-md-8 mt-5">
 
                 <h3 style ="text-align:center;  ">Available Drinks</h3>
@@ -43,280 +52,45 @@ ini_set('display_errors', 1);
                             </tr>
                         </thead>
                         <tbody id='products_table'>
-                            <tr>
-                                <td><img src="drink1.jpg" alt="Drink 1" class="drink-image"></td>
-                                <td>Latte</td>
-                                <td>$4</td>
-                                <td>Coffee</td>
-                                <td>
-                                    <button class="btn btn-sm btn-secondary">-</button>
-                                    1
-                                    <button class="btn btn-sm btn-secondary">+</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><img src="drink2.jpg" alt="Drink 2" class="drink-image"></td>
-                                <td>Green Tea</td>
-                                <td>$3</td>
-                                <td>Tea</td>
-                                <td>
-                                    <button class="btn btn-sm btn-secondary">-</button>
-                                    1
-                                    <button class="btn btn-sm btn-secondary">+</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><img src="drink3.jpg" alt="Drink 3" class="drink-image"></td>
-                                <td>Americano</td>
-                                <td>$5</td>
-                                <td>Coffee</td>
-                                <td>
-                                    <button class="btn btn-sm btn-secondary">-</button>
-                                    1
-                                    <button class="btn btn-sm btn-secondary">+</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><img src="drink4.jpg" alt="Drink 4" class="drink-image"></td>
-                                <td>Milkshake</td>
-                                <td>$6</td>
-                                <td>Milk</td>
-                                <td>
-                                    <button class="btn btn-sm btn-secondary">-</button>
-                                    1
-                                    <button class="btn btn-sm btn-secondary">+</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><img src="drink5.jpg" alt="Drink 5" class="drink-image"></td>
-                                <td>Cappuccino</td>
-                                <td>$5</td>
-                                <td>Coffee</td>
-                                <td>
-                                    <button class="btn btn-sm btn-secondary">-</button>
-                                    1
-                                    <button class="btn btn-sm btn-secondary">+</button>
-                                </td>
-                            </tr>
-
-
-                            <tr>
-                                <td><img src="drink1.jpg" alt="Drink 1" class="drink-image"></td>
-                                <td>Latte</td>
-                                <td>$4</td>
-                                <td>Coffee</td>
-                                <td>
-                                    <button class="btn btn-sm btn-secondary">-</button>
-                                    1
-                                    <button class="btn btn-sm btn-secondary">+</button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td><img src="drink1.jpg" alt="Drink 1" class="drink-image"></td>
-                                <td>Latte</td>
-                                <td>$4</td>
-                                <td>Coffee</td>
-                                <td>
-                                    <button class="btn btn-sm btn-secondary">-</button>
-                                    1
-                                    <button class="btn btn-sm btn-secondary">+</button>
-                                </td>
-                            </tr>
-
-
-                            <tr>
-                                <td><img src="drink1.jpg" alt="Drink 1" class="drink-image"></td>
-                                <td>Latte</td>
-                                <td>$4</td>
-                                <td>Coffee</td>
-                                <td>
-                                    <button class="btn btn-sm btn-secondary">-</button>
-                                    1
-                                    <button class="btn btn-sm btn-secondary">+</button>
-                                </td>
-                            </tr>
-
-
-
-                            <tr>
-                                <td><img src="drink1.jpg" alt="Drink 1" class="drink-image"></td>
-                                <td>Latte</td>
-                                <td>$4</td>
-                                <td>Coffee</td>
-                                <td>
-                                    <button class="btn btn-sm btn-secondary">-</button>
-                                    1
-                                    <button class="btn btn-sm btn-secondary">+</button>
-                                </td>
-                            </tr>
-
-
-
-                            <tr>
-                                <td><img src="drink1.jpg" alt="Drink 1" class="drink-image"></td>
-                                <td>Latte</td>
-                                <td>$4</td>
-                                <td>Coffee</td>
-                                <td>
-                                    <button class="btn btn-sm btn-secondary">-</button>
-                                    1
-                                    <button class="btn btn-sm btn-secondary">+</button>
-                                </td>
-                            </tr>
-
-
-
-                            <tr>
-                                <td><img src="drink1.jpg" alt="Drink 1" class="drink-image"></td>
-                                <td>Latte</td>
-                                <td>$4</td>
-                                <td>Coffee</td>
-                                <td>
-                                    <button class="btn btn-sm btn-secondary">-</button>
-                                    1
-                                    <button class="btn btn-sm btn-secondary">+</button>
-                                </td>
-                            </tr>
-
-
-
-                            <tr>
-                                <td><img src="drink1.jpg" alt="Drink 1" class="drink-image"></td>
-                                <td>Latte</td>
-                                <td>$4</td>
-                                <td>Coffee</td>
-                                <td>
-                                    <button class="btn btn-sm btn-secondary">-</button>
-                                    1
-                                    <button class="btn btn-sm btn-secondary">+</button>
-                                </td>
-                            </tr>
-
-
-
-
-                            <tr>
-                                <td><img src="drink1.jpg" alt="Drink 1" class="drink-image"></td>
-                                <td>Latte</td>
-                                <td>$4</td>
-                                <td>Coffee</td>
-                                <td>
-                                    <button class="btn btn-sm btn-secondary">-</button>
-                                    1
-                                    <button class="btn btn-sm btn-secondary">+</button>
-                                </td>
-                            </tr>
-
-
-
-                            <tr>
-                                <td><img src="drink1.jpg" alt="Drink 1" class="drink-image"></td>
-                                <td>Latte</td>
-                                <td>$4</td>
-                                <td>Coffee</td>
-                                <td>
-                                    <button class="btn btn-sm btn-secondary">-</button>
-                                    1
-                                    <button class="btn btn-sm btn-secondary">+</button>
-                                </td>
-                            </tr>
-
-
-
-                            <tr>
-                                <td><img src="drink1.jpg" alt="Drink 1" class="drink-image"></td>
-                                <td>Latte</td>
-                                <td>$4</td>
-                                <td>Coffee</td>
-                                <td>
-                                    <button class="btn btn-sm btn-secondary">-</button>
-                                    1
-                                    <button class="btn btn-sm btn-secondary">+</button>
-                                </td>
-                            </tr>
-
-
-
-                            <tr>
-                                <td><img src="drink1.jpg" alt="Drink 1" class="drink-image"></td>
-                                <td>Latte</td>
-                                <td>$4</td>
-                                <td>Coffee</td>
-                                <td>
-                                    <button class="btn btn-sm btn-secondary">-</button>
-                                    1
-                                    <button class="btn btn-sm btn-secondary">+</button>
-                                </td>
-                            </tr>
-
-
-
-
-                            <tr>
-                                <td><img src="drink1.jpg" alt="Drink 1" class="drink-image"></td>
-                                <td>Latte</td>
-                                <td>$4</td>
-                                <td>Coffee</td>
-                                <td>
-                                    <button class="btn btn-sm btn-secondary">-</button>
-                                    1
-                                    <button class="btn btn-sm btn-secondary">+</button>
-                                </td>
-                            </tr>
-
-
                         </tbody>
                     </table>
                 </div>
             </div>
 
             <div class="col-md-4">
+                
+
+                <div class="summary-container p-3 border m-3">
+
+                <div class="container d-flex flex-wrap justify-content-center">
+      <div class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto d-flex align-items-center">
+      <img id = 'cus-image' src="images/user.png" alt="User Image" class="rounded-circle" width="40" height="40">
+      <span class="ms-2 fw-bold" id='cus_name'>Customer:  </span>   
+    </div>
+                </div>
+                </div>
+
+
                 <h3>Order Summary</h3>
                 <div class="summary-container p-3 border">
-                    <ul class="list-group mb-3">
-                        <li class="list-group-item">Latte - $4</li>
-                        <li class="list-group-item">Green Tea - $3</li>
+                    <ul class="list-group mb-3 " id ='order'>
+                 
                     </ul>
-                    <textarea class="form-control mb-3" rows="3" placeholder="Add a note..."></textarea>
-                    <h5>Total: $7</h5>
-                    <button class="btn btn-primary w-100">Confirm Order</button>
-                </div>
+                    <textarea id ="note" class="form-control mb-3" rows="3" placeholder="Add a note..."></textarea>
+                    <h5 id = 'total'>Total: $0</h5>
+                    <button id ="confirm" class="btn btn-primary w-100">Confirm Order</button>
+
+
+
+              
             </div>
+            <div id='error' class="mt-3"></div>
+
+
+
         </div>
     </div>
-<script>
-
-$(document).ready(function() {
-    $.ajax({
-        url: '../includes/products.php',
-        type: 'GET',
-        dataType: 'json',
-        success: function(data) {
-            console.log(data); 
-
-            $('#products_table').empty();
-            data.forEach(function(product) {
-
-                $('#products_table').
-                append(`   <tr>
-                                <td><img src="${product.image}" alt="Drink 1" class="drink-image" width ="50"></td>
-                                <td>${product.name}</td>
-                                <td>$${product.price}</td>
-                                <td>${product.category}</td>
-                                <td>
-                                    <button class="btn btn-sm btn-secondary">-</button>
-                                    1
-                                    <button class="btn btn-sm btn-danger">+</button>
-                                </td>
-                            </tr>`);
-            });
-        },
-        error: function(error) {
-            console.log("Error: ", error);
-        }
-    });
-});
+<script src = '../script/home.js'>
 </script>
 <?php 
 include_once('../includes/footer.php');
