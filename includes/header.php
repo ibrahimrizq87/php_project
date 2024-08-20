@@ -95,7 +95,7 @@
  echo ' <span class="ms-2 badge bg-danger">Admin </span>';
 
 }else{
-   echo ' <span class="ms-2 badge bg-primary">Admin </span>';
+   echo ' <span class="ms-2 badge bg-primary">Customer </span>';
 } ?>
 
 </div>

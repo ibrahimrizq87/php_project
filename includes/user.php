@@ -33,6 +33,8 @@ class User {
             $_SESSION["is_admin"] = $row["is_admin"];
             $_SESSION["user_name"] = $row["name"];
             $_SESSION["image"] = $row["profile_pic"];
+            $_SESSION["id"] = $row["id"];
+
 
             return true;
             // $_SESSION["is_loged"] =true;

@@ -1,7 +1,7 @@
 
-<footer class="footer container-fluid d-flex justify-content-between align-items-center ">
+<footer class=" container-fluid footer d-flex justify-content-between align-items-center ">
     <div class="col-md-4 d-flex align-items-center ms-5">
-      <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+      <a href="../pages/home.php" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
       <image src = 'images/logo.png'class="bi me-2" width="50" height="50" >
       </a>
       <span class="mb-3 mb-md-0 text-muted">© 2024 ITI PHP Project</span>

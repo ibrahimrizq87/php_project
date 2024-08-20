@@ -3,8 +3,54 @@
 $(document).ready(function() {
 
 let itemList=[];
-
 let userID = -1;
+let recentOrders =[];
+
+if ($('#cus_name').data('id') == '-1'){
+     userID = -1;
+
+}else{
+    userID = $('#cus_name').data('id');
+
+    console.log('here in home: ', userID)
+
+
+    $.ajax({
+        url: '../includes/get_recent_products.php',
+        type: 'GET',
+        dataType: 'json',
+        data: { id: userID },
+        success: function(data) {
+            console.log(data);
+            recentOrders =data;
+            updateRecent();
+
+        },
+        error: function(error) {
+            console.log("Error: ", error);
+        }
+    });
+}
+function updateRecent(){
+    $('#recent').empty();
+    recentOrders.forEach(function(product){
+
+        $('#recent').append(
+            `<td>
+            
+            <div class="    " ">
+  <img class="" src="${product.image}" width = "50" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">${product.name}</h5>
+    <p class="card-text">${product.price} EGP</p>
+  </div>
+</div>
+            </td>`
+        );
+    });
+    
+}
+
 order = {
     status: null,              
     total_price: null,               
@@ -249,8 +295,10 @@ $(document).on('click', '#confirm', function() {
                 updateProducts();
 
                 itemList=[];
-
-                userID = -1;
+                if ($('#cus_name').data('id') == '-1'){
+                    userID = -1;
+               
+               }
                 order = {
                 status: null,              
                 total_price: null,               
