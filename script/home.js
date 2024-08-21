@@ -279,6 +279,7 @@ $(document).on('click', '#confirm', function() {
                         </div>
                     </div>
                 `);
+                console.log('here',$('#cus_name').data('id'));
                 
                 setTimeout(function() {
                     $("#success-message").fadeOut("slow", function() {
@@ -295,9 +296,14 @@ $(document).on('click', '#confirm', function() {
                 updateProducts();
 
                 itemList=[];
+                
+
+
                 if ($('#cus_name').data('id') == '-1'){
                     userID = -1;
                
+                    $('#cus_name').text("customer:");
+                    $('#cus-image').attr('src', "images/user.png");
                }
                 order = {
                 status: null,              
@@ -307,8 +313,6 @@ $(document).on('click', '#confirm', function() {
                 };
 
 
-                $('#cus_name').text("customer:");
-        $('#cus-image').attr('src', "images/user.png");
 
             },
             error: function(xhr, status, error) {

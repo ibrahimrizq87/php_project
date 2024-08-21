@@ -11,7 +11,12 @@ ini_set('display_errors', 1);
     header("Location: pages/login.php");
     exit();
 } else {
-    header("Location: pages/home.php");
+     if ($_SESSION["is_admin"] == 'TRUE'){
+        header("Location: pages/view_orders.php");
+    }else{
+    
+        header("Location: pages/home.php");
+    }
 }
 ?>
 

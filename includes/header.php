@@ -8,7 +8,9 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link href="../style/style.css" rel="stylesheet" >
     
-    <title>Home</title>
+    <title>Cafeteria</title>
+    <link rel="icon" href="../images/cafee.png" type="image/x-icon">
+
 </head>
 <body class='bg-light'>
     
@@ -25,17 +27,19 @@
           </a>
 
           <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
-            <li>
-              <a href="home.php" class="nav-link text-white">
+           
+            <?php
+            if ($_SESSION["is_admin"] == 'TRUE'){
+             
+            ?>
+
+<li>
+              <a href="view_orders.php" class="nav-link text-white">
                 <img src='images/home1.png' class="bi d-block mx-auto mb-1" width="30" height="30">
                 Home
               </a>
             </li>
-            <?php
-            if ($_SESSION["is_admin"] == 'TRUE'){
-             
-          
-            ?>
+
             <li>
               <a href="view_products.php" class="nav-link text-white">
               <img src='images/products.png' class="bi d-block mx-auto mb-1" width="30" height="30">
@@ -49,7 +53,7 @@
               </a>
             </li>
             <li>
-              <a href="manual.php" class="nav-link text-white">
+              <a href="home.php" class="nav-link text-white">
               <img src='images/manual.png' class="bi d-block mx-auto mb-1" width="30" height="30">
               Manual Order
               </a>
@@ -68,9 +72,15 @@
           
 }else{
   ?>
+   <li>
+              <a href="home.php" class="nav-link text-white">
+                <img src='images/home1.png' class="bi d-block mx-auto mb-1" width="30" height="30">
+                Home
+              </a>
+            </li>
 
 <li>
-              <a href="orders.php" class="nav-link text-white">
+              <a href="view_my_orders.php" class="nav-link text-white">
               <img src='images/order1.png' class="bi d-block mx-auto mb-1" width="30" height="30">
               Orders
               </a>

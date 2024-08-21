@@ -141,9 +141,16 @@ class User {
                         }
                         echo'</table>
                         <div class="pagination">';?>
-                        <?php for($i=1;$i<=$pages;$i++):?> 
-                        <a class='btn btn-primary 'href='?page=<?php echo $i ?>&per-page=<?php echo $perPage?>'> <?php echo $i?> </a>
+                        
+                           <?php for($i=1;$i<=$pages;$i++):?> 
+    <?php if ($i == $page){?>
+                        <a class='btn btn-warning 'href='?page=<?php echo $i ?>&per-page=<?php echo $perPage?>'> <?php echo $i?> </a>
+                        <?php } else{ ?>
+                            <a class='btn btn-primary 'href='?page=<?php echo $i ?>&per-page=<?php echo $perPage?>'> <?php echo $i?> </a>
+
+                            <?php } ?>
                         <?php endfor?>
+
                     </div>
 
                     <?php

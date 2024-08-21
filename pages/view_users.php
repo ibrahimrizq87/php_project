@@ -93,7 +93,7 @@ $pages=ceil($total/$perPage);
                         echo'</table>
                         <div class="pagination">';?>
                         <?php for($i=1;$i<=$pages;$i++):?> 
-                        <a class='btn btn-primary 'href='?page=<?php echo $i ?>&per-page=<?php echo $perPage?>'> <?php echo $i?> </a>
+                        <a class='btn btn-primary me-3'href='?page=<?php echo $i ?>&per-page=<?php echo $perPage?>'> <?php echo $i?> </a>
                         <?php endfor?>
                     </div>
 
