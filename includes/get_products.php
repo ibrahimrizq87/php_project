@@ -7,7 +7,7 @@ require_once '../includes/database.php';
 try {
 $database = new Database();
 $db = $database->getConnection();
-            $stmt = $db->prepare("SELECT * FROM products");
+            $stmt = $db->prepare("SELECT * FROM products where availability= 'available' ");
             $stmt->execute();
         
             $products = $stmt->fetchAll(PDO::FETCH_ASSOC);

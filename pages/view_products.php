@@ -55,7 +55,7 @@ if ($data == -1) {
             <td> <?php echo ucfirst($product['name']); ?></td>
             <td> <?php echo $product['price']; ?> EGP</td>
             <td>
-              <div style="width: 70px; height:70px; overflow:hidden;">
+              <div style="width: 90px; height:90px; overflow:hidden;">
                 <img width="100%" src=" <?php echo $product['image']; ?> ">
               </div>
             </td>

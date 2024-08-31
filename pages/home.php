@@ -103,7 +103,7 @@ ini_set('display_errors', 1);
           
             ?>
 
-      <img id = 'cus-image' src="images/user.png" alt="User Image" class="rounded-circle" width="40" height="40">
+      <img id = 'cus-image' src="images/user.png" alt="User Image" class="rounded-circle" width="70" height="70">
       <span class="ms-2 fw-bold" data-id = '-1' id='cus_name'>Customer:  </span>   
 
 
@@ -113,7 +113,7 @@ ini_set('display_errors', 1);
 }else{
   ?>
 
-<img id = 'cus-image' src=<?php echo $_SESSION["image"]?>  alt="User Image" class="rounded-circle" width="40" height="40">
+<img id = 'cus-image' src=<?php echo $_SESSION["image"]?>  alt="User Image" class="rounded-circle" width="70" height="70">
       <span class="ms-2 fw-bold" data-id = <?php echo $_SESSION["id"]?> id='cus_name'><?php echo $_SESSION["user_name"]?>  </span>   
 
 <?php

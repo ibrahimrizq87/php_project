@@ -146,7 +146,8 @@ function updateProducts(){
 
         $('#products_table').
         append(`   <tr>
-                        <td><img src="${product.image}" alt="Drink 1" class="drink-image" width ="50"></td>
+                                    <td  style=" height:90px; overflow:hidden;"><img src="${product.image}" alt="Drink 1" class="drink-image"  width ="100px"></td>
+
                         <td>${product.name}</td>
                         <td>$${product.price}</td>
                         <td>${product.category}</td>

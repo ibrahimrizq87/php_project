@@ -80,7 +80,7 @@ $pages=ceil($total/$perPage);
                             <td>'.$q['email'].'</td>
                             <td>'.$q['room_no'].'</td>
                             <td>'.$q['ext'].'</td>';
-                            echo '<td><img width=70px src="';
+                            echo '<td><img style=" height:90px; overflow:hidden;" height=90px src="';
                             echo $q['profile_pic'];
                             echo '">'.'</td>';
                             echo ' <td>

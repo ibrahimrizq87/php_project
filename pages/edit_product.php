@@ -93,6 +93,7 @@ if (!isset($_SESSION["user_name"])) {
         <option value="unavailable">Unavailable</option>
       </select>
       <br><br>
+      <input type="hidden"   name="id" id="price" value="<?php echo $data['id']; ?>">
 
       <input type="submit" value="Submit" class="btn btn-primary mb-2">
     </fieldset>

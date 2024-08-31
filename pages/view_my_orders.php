@@ -134,7 +134,7 @@ $(`.item-list`).append(`<tr>
 <td>${item.name}</td>
 <td>${item.quantity}</td>
 <td>${item.price}</td>
-<td><img src=${item.image} width = '50px'></td>
+<td><img src=${item.image} width = '90px'></td>
 </tr>
 
 

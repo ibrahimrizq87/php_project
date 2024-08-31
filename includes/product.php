@@ -88,10 +88,10 @@ class Product
 
       try {
 
-      $query = 'UPDATE products set name=?, price=? ,category=? ,image=?,availability=?';
+      $query = 'UPDATE products set name=?, price=? ,category=? ,image=?,availability=? where id =?';
       $stmt = $this->conn->prepare($query);
 
-      $stmt->execute([$_POST['name'], $_POST['price'], $_POST['category'], $file_path, $_POST['availability']]);
+      $stmt->execute([$_POST['name'], $_POST['price'], $_POST['category'], $file_path, $_POST['availability'] ,$_POST['id']]);
 
       return 'done';
     } catch (Exception $e) {
